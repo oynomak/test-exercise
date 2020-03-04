@@ -5,7 +5,26 @@
 		<link rel="stylesheet" type="text/css" href="myStyle.css">
 		<script>
 			var app = new function(){
-				
+				alert("Inside my App");
+
+				/* Initializing the records by some random data */
+				this.myRecords = [
+					{firstName: "Mugabo", lastName: "Kamonyo", sex: "Male", age: 42, city: "Kigali", country: "Rwanda", hasDiabetes: "No"},
+				  	{firstName: "Mary", lastName: "Johnson", sex: "Female", age: 2, city: "Bujumbura", country: "Burundi", hasDiabetes: "No"},
+				  	{firstName: "John", lastName: "Doe", sex: "Male", age: 22, city: "Abidjan", country: "Cote d'Ivoire", hasDiabetes: "Yes"},
+				  	{firstName: "Herve", lastName: "Richard", sex: "Male", age: 4, city: "Lagos", country: "Nigeria", hasDiabetes: "No"}	
+				];
+
+				/* Adding a new Record from Form in the page */
+				this.Add = function(){
+					alert(this.myRecords.length);
+				};
+
+				/* Fetching throught the list of records */
+				this.FetchAll = function() {
+					alert(this.myRecords.length);
+				};
+
 			};
 		</script>
 		<title>Records</title>
@@ -13,7 +32,7 @@
 	<body>
 		<div id="myFormSection">
 			<h2>New Medical Record</h2>
-			<form>
+			<form action="javascript:void(0);" method="post" onsubmit="app.Add()">
 				<table>
 					<tr>
 						<td><input type="text" id="first_name" name="firstname" placeholder="First name"/></td>
@@ -51,10 +70,10 @@
 					<tr>
 						<td>Living with Diabetes?</td>
 						<td>
-							<input type="radio" id="no" name="has_diabates" value="No">
-							<label for="no">No</label>
 							<input type="radio" id="yes" name="has_diabates" value="Yes">
 							<label for="yes">Yes</label>
+							<input type="radio" id="no" name="has_diabates" value="No">
+							<label for="no">No</label>
 							<input type="radio" id="unknown" name="has_diabates" value="Unknown">
 							<label for="unknown">Unknown</label>
 						</td>
@@ -68,7 +87,14 @@
 		</div>
 		<br><hr><br>
 		<div id="myRecordsSection">
-			
+			<table>
+				<tr>
+					<td><h3>List of medical records</h3></td>
+					<td><input type="checkbox" name="mineur" onchange="app.FetchAll()" id="mineur"/><label id="under18" for="mineur">Only minors</label></td>
+				</tr>
+				<tbody id="records">
+				</tbody>
+			</table>
 		</div>
 	</body>
 </html>
