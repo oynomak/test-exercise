@@ -7,77 +7,86 @@
 		<title>Records</title>
 	</head>
 	<body onload="app.FetchAll()">
-		<div id="myFormSection">
-			<h2>New Medical Record</h2>
-			<form action="javascript:void(0);" method="post" onsubmit="app.Add()">
-				<table>
-					<tr>
-						<td><input type="text" id="first_name" name="firstname" placeholder="First name"/></td>
-						<td><input type="text" id="last_name" name="lastname" placeholder="Last name"/></td>
-					</tr>
-					<tr>
-						<td>
-							<input type="radio" id="male" name="gender" value="Male">
-							<label for="male">Male</label>
-							<input type="radio" id="female" name="gender" value="Female">
-							<label for="female">Female</label>
-						</td>
-						<td><input type="number" id="age" name="age" placeholder="Age" min="0" max="150"/></td>
-					</tr>
-					<tr>
-						<td>
-							<select id="city">
-								<option value="">City</option>
-								<option value="Kigali">Kigali</option>
-								<option value="Bujumbura">Bujumbura</option>
-								<option value="Abidjan">Abidjan</option>
-								<option value="Lagos">Lagos</option>
-							</select>
-						</td>
-						<td>
-							<select id="country">
-								<option value="">Country</option>
-								<option value="Rwanda">Rwanda</option>
-								<option value="Burundi">Burundi</option>
-								<option value="Cote d'Ivoire">Cote d'Ivoire</option>
-								<option value="Nigeria">Nigeria</option>
-							</select>
-						</td>
-					</tr>
-					<tr>
-						<td>Living with Diabetes?</td>
-						<td>
-							<input type="radio" id="yes" name="has_diabates" value="Yes">
-							<label for="yes">Yes</label>
-							<input type="radio" id="no" name="has_diabates" value="No">
-							<label for="no">No</label>
-							<input type="radio" id="unknown" name="has_diabates" value="Unknown">
-							<label for="unknown">Unknown</label>
-						</td>
-					</tr>
-					<tr id="submitBtn">
-						<td colspan="2"><input type="submit" id="save_record" value="SAVE" /></td>
-					</tr>
-					<tr id="editBtn">
-						<td colspan="2"><input type="button" id="edit_record" value="EDIT" /></td>
-					</tr>
-				</table>
-			</form>
-		</div>
-		<br><hr><br>
-		<div id="myRecordsSection">
-			<table>
-				<tr>
-					<td colspan="2"><h3>List of medical records</h3></td>
-				</tr>
-				<tr>
-					<td><label for="search">Find a record</label>
-						<input type="text" oninput="app.FilterRecords()" name="search" id="search" placeholder="Search (Names, Sex)"></td> 
-					<td><input type="checkbox" name="mineur" onchange="app.FetchAll()" id="mineur"/><label id="under18" for="mineur">Only minors</label></td>
-				</tr>
-				<tbody id="records">
-				</tbody>
-			</table>
+		<div id="container">
+			<section id="data_entry">
+				<div id="myFormSection">
+					<h2>New Medical Record</h2>
+					<form action="javascript:void(0);" method="post" onsubmit="app.Add()">
+
+						<fieldset>
+							<table>
+								<tr>
+									<td><input type="text" id="first_name" name="firstname" placeholder="First name"/></td>
+									<td><input type="text" id="last_name" name="lastname" placeholder="Last name"/></td>
+								</tr>
+								<tr>
+									<td>
+										<input type="radio" id="male" name="gender" value="Male">
+										<label for="male">Male</label>
+										<input type="radio" id="female" name="gender" value="Female">
+										<label for="female">Female</label>
+									</td>
+									<td><input type="number" id="age" name="age" placeholder="Age" min="0" max="150"/></td>
+								</tr>
+								<tr>
+									<td>
+										<select id="city">
+											<option value="">City</option>
+											<option value="Kigali">Kigali</option>
+											<option value="Bujumbura">Bujumbura</option>
+											<option value="Abidjan">Abidjan</option>
+											<option value="Lagos">Lagos</option>
+										</select>
+									</td>
+									<td>
+										<select id="country">
+											<option value="">Country</option>
+											<option value="Rwanda">Rwanda</option>
+											<option value="Burundi">Burundi</option>
+											<option value="Cote d'Ivoire">Cote d'Ivoire</option>
+											<option value="Nigeria">Nigeria</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td>Living with Diabetes?</td>
+									<td>
+										<input type="radio" id="yes" name="has_diabates" value="Yes">
+										<label for="yes">Yes</label>
+										<input type="radio" id="no" name="has_diabates" value="No">
+										<label for="no">No</label>
+										<input type="radio" id="unknown" name="has_diabates" value="Unknown">
+										<label for="unknown">Unknown</label>
+									</td>
+								</tr>
+								<tr id="submitBtn">
+									<td colspan="2"><input type="submit" id="save_record" value="SAVE" /></td>
+								</tr>
+								<tr id="editBtn">
+									<td colspan="2"><input type="button" id="edit_record" value="EDIT" /></td>
+								</tr>
+							</table>
+						</fieldset>
+					</form>
+				</div>
+			</section>
+			<hr>
+			<section id="data_display">
+				<div id="myRecordsSection">
+					<table>
+						<tr>
+							<td colspan="2"><h3>List of medical records</h3></td>
+						</tr>
+						<tr>
+							<td><label for="search">Find a record</label>
+								<input type="text" oninput="app.FilterRecords()" name="search" id="search" placeholder="Search (Names, Sex)"></td> 
+							<td><input type="checkbox" name="mineur" onchange="app.FetchAll()" id="mineur"/><label id="under18" for="mineur">Only minors</label></td>
+						</tr>
+						<tbody id="records">
+						</tbody>
+					</table>
+				</div>
+			</section>
 		</div>
 	</body>
 </html>
