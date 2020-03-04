@@ -82,6 +82,40 @@ var app = new function(){
 		return document.getElementById("records").innerHTML = data;
 	};
 
+	/* Filter myRecords using different conditions */
+
+	this.FilterRecords = function(){
+		
+		var display = "";
+		var search = document.getElementById("search").value;
+		var data = "";
+
+		// Checking if the search box is not empty
+		if(search != ""){
+
+			data = this.myRecords.filter(function(record, i) {
+						return ((record.firstName == search || record.lastName == search) || record.sex == search);
+					});
+
+			// Checking if returned array is not empty
+			if(data == ""){
+				data = this.myRecords;
+			}
+		}else{
+			// Reinitializing the records to initial...
+			data = this.myRecords;
+		}
+
+		// Displaying the new list...
+		for (i = 0; i < data.length; i++) {
+
+			display += "<tr><td>" + data[i].firstName + " " + data[i].lastName + "  (" 
+			        		+ data[i].sex + "), " + data[i].age + " - " + data[i].city + "(" + data[i].country 
+			        				+ ")</td><td><a id='edit' onclick='app.Edit("+ i+ ")' >edit</a> | <a id='delete' onclick='app.Delete("+ i+ ")' >delete</a></td></tr>";
+		}
+		return document.getElementById("records").innerHTML = display;
+	};
+
 	/* Updating a existing record */
 	this.Edit = function (position){
 
