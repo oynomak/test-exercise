@@ -70,15 +70,24 @@
 
 
 					var data = "";
+					var minorIsChecked = document.getElementById("mineur").checked;
 
 					if (app.myRecords.length > 0) {
 						for (i = 0; i < app.myRecords.length; i++) {
 
+							if (minorIsChecked == true) {
+								if (app.myRecords[i].age < 18) {
+
+									data += "<tr><td>" + app.myRecords[i].firstName + " " + app.myRecords[i].lastName + "  (" 
+						        		+ app.myRecords[i].sex + "), " + app.myRecords[i].age + " - " + app.myRecords[i].city + "(" + app.myRecords[i].country 
+						        				+ ")</td><td></td></tr>";
+								}
+							}else if(minorIsChecked == false){
 
 								data += "<tr><td>" + app.myRecords[i].firstName + " " + app.myRecords[i].lastName + "  (" 
 						        		+ app.myRecords[i].sex + "), " + app.myRecords[i].age + " - " + app.myRecords[i].city + "(" + app.myRecords[i].country 
 						        				+ ")</td><td></td></tr>";
-							
+							}
 							
 						}
 					}
