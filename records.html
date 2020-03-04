@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" href="myStyle.css">
+		<script src="myApp.js"></script>
+		<title>Records</title>
+	</head>
+	<body>
+		<div id="myFormSection">
+			<h2>New Medical Record</h2>
+			<form>
+				<table>
+					<tr>
+						<td><input type="text" id="first_name" name="firstname" placeholder="First name"/></td>
+						<td><input type="text" id="last_name" name="lastname" placeholder="Last name"/></td>
+					</tr>
+					<tr>
+						<td>
+							<input type="radio" id="male" name="gender" value="Male">
+							<label for="male">Male</label>
+							<input type="radio" id="female" name="gender" value="Female">
+							<label for="female">Female</label>
+						</td>
+						<td><input type="number" id="age" name="age" placeholder="Age" min="0" max="150"/></td>
+					</tr>
+					<tr>
+						<td>
+							<select id="city">
+								<option value="">City</option>
+								<option value="Kigali">Kigali</option>
+								<option value="Bujumbura">Bujumbura</option>
+								<option value="Abidjan">Abidjan</option>
+								<option value="Lagos">Lagos</option>
+							</select>
+						</td>
+						<td>
+							<select id="country">
+								<option value="">Country</option>
+								<option value="Rwanda">Rwanda</option>
+								<option value="Burundi">Burundi</option>
+								<option value="Cote d'Ivoire">Cote d'Ivoire</option>
+								<option value="Nigeria">Nigeria</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Living with Diabetes?</td>
+						<td>
+							<input type="radio" id="no" name="has_diabates" value="No">
+							<label for="no">No</label>
+							<input type="radio" id="yes" name="has_diabates" value="Yes">
+							<label for="yes">Yes</label>
+							<input type="radio" id="unknown" name="has_diabates" value="Unknown">
+							<label for="unknown">Unknown</label>
+						</td>
+					</tr>
+					<tr id="submitBtn">
+						<td></td>
+						<td><input type="submit" id="save_record" value="SAVE" /></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		<br><hr><br>
+		<div id="myRecordsSection">
+			
+		</div>
+	</body>
+</html>
