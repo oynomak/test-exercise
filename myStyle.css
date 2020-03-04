@@ -48,3 +48,7 @@ div{
 #editBtn {
     display: none;
 }
+
+table {
+  border-collapse: collapse;
+}
