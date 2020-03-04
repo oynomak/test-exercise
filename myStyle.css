@@ -7,22 +7,6 @@ h1 {
   text-align: center;
 }
 
-a {
-	font-style: italic;
-	text-decoration: underline;
-}
-
-a:hover {
- 	cursor:pointer;
-}
-
-#delete {
-	color: #FF851B;
-}
-
-#edit {
-	color: ##1c1d91;
-}
 
 p {
   font-family: verdana;
@@ -36,8 +20,4 @@ div{
 
 #under18 {
 	color: #FF4136;
-}
-
-#editBtn {
-  	display: none;
 }
