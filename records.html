@@ -5,7 +5,8 @@
 		<link rel="stylesheet" type="text/css" href="myStyle.css">
 		<script>
 			var app = new function(){
-				alert("Inside my App");
+					// Just testing...
+				// alert("Inside my App");
 
 				/* Initializing the records by some random data */
 				this.myRecords = [
@@ -17,11 +18,54 @@
 
 				/* Adding a new Record from Form in the page */
 				this.Add = function(){
-					alert(this.myRecords.length);
+					// Just testing...
+					// alert(this.myRecords.length);
+
+				 	/* Get the new Record: */
+					var newRecord;
+
+					// Getting sex info...
+				 	var sex = "-";
+				 	if (document.getElementById("male").checked) {
+					  sex = document.getElementById("male").value;
+					}else if (document.getElementById("female").checked) {
+					  sex = document.getElementById("female").value;
+					}
+					// Getting diabete info...
+					var diabete = "-";
+				 	if (document.getElementById("yes").checked) {
+					  diabete = document.getElementById("yes").value;
+					}else if (document.getElementById("no").checked) {
+					  diabete = document.getElementById("no").value;
+					}else if (document.getElementById("unknown").checked) {
+					  diabete = document.getElementById("unknown").value;
+					}
+
+				 	newRecord = {
+						firstName: document.getElementById("first_name").value,
+						lastName: document.getElementById("last_name").value,
+						sex: sex,
+						age: document.getElementById("age").value,
+						city: document.getElementById("city").value,
+						country: document.getElementById("country").value,
+						hasDiabetes: diabete
+					};
+
+				 	if (newRecord.firstName && newRecord.lastName && age) {
+					  	// Add the new value
+					  	
+					  	this.myRecords.push(newRecord);
+					  	// Reset form's values
+					  	//resetFields();
+					  	// Dislay the new list
+					  	this.FetchAll();
+					}
+
 				};
 
 				/* Fetching throught the list of records */
 				this.FetchAll = function() {
+					// Just testing...
 					alert(this.myRecords.length);
 				};
 
