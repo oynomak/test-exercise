@@ -67,19 +67,74 @@ var app = new function(){
 
 						data += "<tr><td>" + app.myRecords[i].firstName + " " + app.myRecords[i].lastName + "  (" 
 			        		+ app.myRecords[i].sex + "), " + app.myRecords[i].age + " - " + app.myRecords[i].city + "(" + app.myRecords[i].country 
-			        				+ ")</td><td></td></tr>";
+			        				+ ")</td><td><a id='edit' onclick='app.Edit("+ i+ ")' >edit</a> | <a id='delete' onclick='app.Delete("+ i+ ")' >delete</a></td></tr>";
 					}
 				}else if(minorIsChecked == false){
 
 					data += "<tr><td>" + app.myRecords[i].firstName + " " + app.myRecords[i].lastName + "  (" 
 			        		+ app.myRecords[i].sex + "), " + app.myRecords[i].age + " - " + app.myRecords[i].city + "(" + app.myRecords[i].country 
-			        				+ ")</td><td></td></tr>";
+			        				+ ")</td><td><a id='edit' onclick='app.Edit("+ i+ ")' >edit</a> | <a id='delete' onclick='app.Delete("+ i+ ")' >delete</a></td></tr>";
 				}
 				
 			}
 		}
 		// Returning the tbody records...
 		return document.getElementById("records").innerHTML = data;
+	};
+
+	/* Updating a existing record */
+	this.Edit = function (position){
+
+		document.getElementById("submitBtn").style.display = "none";
+		document.getElementById("editBtn").style.display = "inline";
+
+		var record = this.myRecords[position];
+
+		/* Populating form with values selected */
+		document.getElementById("first_name").value = record.firstName;
+		document.getElementById("last_name").value = record.lastName;
+		if(record.sex == "Male")
+			document.getElementById("male").checked = true;
+		if(record.sex == "Female")
+			document.getElementById("female").checked = true;
+
+		document.getElementById("age").value = record.age;
+		document.getElementById("city").value = record.city;
+		document.getElementById("country").value = record.country;
+
+		self = this;
+
+		/* When "SAVE" button is clicked, UPDATE the record */
+		document.getElementById("edit_record").onclick = function() {
+
+			// Getting new values to update
+			var updatedRecord = {firstName: document.getElementById("first_name").value,
+								 lastName: document.getElementById("last_name").value,
+								 sex: "Male",
+								 age: document.getElementById("age").value,
+								 city: document.getElementById("city").value,
+								 country: document.getElementById("country").value};
+			if(updatedRecord){
+				// Updating the list of records...
+				self.myRecords.splice(position, 1, updatedRecord);
+				// Displaying the new list
+				self.FetchAll();
+				// Resetting the fields
+				resetFields();
+
+			}
+
+		}
+
+	};
+
+	/* Deleting a specific record from myRecords */
+	this.Delete = function (position) {
+		
+		// Delete the current record
+	    this.myRecords.splice(position, 1);
+	    // Display the updated list
+	    this.FetchAll();
 	};
 
 };
@@ -97,4 +152,8 @@ function resetFields(){
 	document.getElementById("yes").checked = false;
 	document.getElementById("no").checked = false;
 	document.getElementById("unknown").checked = false;
+	
+	document.getElementById("editBtn").style.display = "none";
+	// Returning the Submit button "SAVE"
+	document.getElementById("submitBtn").style.display = "inline";
 }
