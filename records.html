@@ -21,9 +21,9 @@
 								</tr>
 								<tr>
 									<td>
-										<input type="radio" id="male" name="gender" value="Male">
+										<input type="radio" id="male" onclick="app.ChangeSexValue()" name="gender" value="Male">
 										<label for="male">Male</label>
-										<input type="radio" id="female" name="gender" value="Female">
+										<input type="radio" id="female" onclick="app.ChangeSexValue()" name="gender" value="Female">
 										<label for="female">Female</label>
 									</td>
 									<td><input type="number" id="age" name="age" placeholder="Age" min="0" max="150"/></td>
@@ -51,11 +51,11 @@
 								<tr>
 									<td>Living with Diabetes?</td>
 									<td>
-										<input type="radio" id="yes" name="has_diabates" value="Yes">
+										<input type="radio" id="yes" onclick="app.ChangeDiabeteValue()" name="has_diabates" value="Yes">
 										<label for="yes">Yes</label>
-										<input type="radio" id="no" name="has_diabates" value="No">
+										<input type="radio" id="no" onclick="app.ChangeDiabeteValue()" name="has_diabates" value="No">
 										<label for="no">No</label>
-										<input type="radio" id="unknown" name="has_diabates" value="Unknown">
+										<input type="radio" id="unknown" onclick="app.ChangeDiabeteValue()" name="has_diabates" value="Unknown">
 										<label for="unknown">Unknown</label>
 									</td>
 								</tr>
