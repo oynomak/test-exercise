@@ -13,22 +13,26 @@ var app = new function(){
 
 	/* Adding a new Record from Form in the page */
 	this.Add = function(){
-
+		/* Triggering the checkboxes values to be considered before saving... */
+		//this.ChangeSexValue();
+		//this.ChangeDiabeteValue();
+		
 	 	/* Get the new Record: */
-		var newRecord;
-
-	 	newRecord = {
+		var newRecord = {
 			firstName: document.getElementById("first_name").value,
 			lastName: document.getElementById("last_name").value,
-			sex: sex,
-			age: this.gender,
+			sex: this.gender,
+			age: document.getElementById("age").value,
 			city: document.getElementById("city").value,
 			country: document.getElementById("country").value,
 			hasDiabetes: this.diabeteStatus
 		};
 
+		alert("sex : "+newRecord.sex + " and status : "+newRecord.hasDiabetes);
+
 	 	if (newRecord.firstName && newRecord.lastName && age) {
 		  	// Add the new value
+		alert("I am saving now ...2" + this.gender);
 		  	
 		  	this.myRecords.push(newRecord);
 		  	// Reset form's values
@@ -138,7 +142,7 @@ var app = new function(){
 			/* Triggering the checkboxes values to be considered before saving... */
 			self.ChangeSexValue();
 			self.ChangeDiabeteValue();
-			
+
 			// Getting new values to update
 			var updatedRecord = {
 									 firstName: document.getElementById("first_name").value,
